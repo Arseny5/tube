@@ -1,11 +1,5 @@
-# TUBE: Tangent Upper Bound on Evidence for Discrete Diffusion Language Models
+# TUBE — project website (gh-pages branch)
 
-Code for the paper **TUBE** (arXiv:2605.24292).
-
-Project page: https://Arseny5.github.io/tube/
-
-> A. Ivanov, S. Kholkin, V. Gromadskii, G. Ksenofontov, I. Oseledets, A. Korotin. 2026.
-
-## Structure
-- code goes here on the `main` branch
-- the project website lives on the `gh-pages` branch (served via GitHub Pages)
+Edit `index.html` and the figures in `static/` to update the page.
+Served at https://Arseny5.github.io/tube/ once GitHub Pages is enabled
+(Settings -> Pages -> Deploy from branch -> gh-pages / root).

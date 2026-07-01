@@ -132,20 +132,16 @@
     <h2 class="title is-3 has-text-centered">Method: A Tangent Upper Bound</h2>
     <div class="content is-size-5 has-text-justified">
       <p>
-        Our method of constructing an upper bound on $\log p_\theta(x)$ rests on the concavity of
-        $\log(\cdot)$, and on the tangent majorization of $\log a$ by its first-order Taylor
-        expansion at a point $b$:
-      </p>
-      <div class="mathbox has-text-centered">
-        $\displaystyle \log a \;\le\; \log b + \frac{a-b}{b}.$
-      </div>
-      <p>
-        Instantiating this at $a=p_\theta(x)$ and a tractable surrogate $b=\psi(x)$ yields the
-        <strong>Tangent Upper Bound on Evidence (TUBE)</strong>, with equality iff $\psi=p_\theta$:
+        Our method of constructing an upper bound on $\log p(x)$ rests on the concavity of $\log a$
+        as a function of $a$, and on the tangent majorization of $\log a$ by its first-order Taylor
+        expansion at a point $b$, namely $\;\log a \le \log b + \frac{a-b}{b}\;$ for all $a,b>0$.
+        Instantiating this at $a=p(x)$ and a tractable surrogate $b=\psi(x)$ yields the
+        <strong>Tangent Upper Bound on Evidence (TUBE)</strong>:
       </p>
       <div class="mathbox accent has-text-centered">
-        $\displaystyle \mathrm{TUBE}_\psi(x) \;=\; \log\psi(x) + \frac{p_\theta(x)-\psi(x)}{\psi(x)}.$
+        $\displaystyle \log p(x) \;\le\; \mathrm{TUBE}_\psi(x) \;:=\; \log\psi(x) + \frac{p(x)-\psi(x)}{\psi(x)}$
       </div>
+      <p class="has-text-centered" style="margin-top:-0.3rem;">with equality iff $\psi(x)=p(x)$.</p>
       <h3 class="title is-5 has-text-centered" style="margin-top:1.7rem;">Two-sided localization of log-likelihood</h3>
       <p>
         TUBE is <strong>linear</strong> in the model likelihood, so it admits an unbiased Monte-Carlo
@@ -153,7 +149,7 @@
         log-likelihood from both sides:
       </p>
       <div class="mathbox accent has-text-centered">
-        $\displaystyle \mathrm{ELBO}(x) \;\le\; \log p_\theta(x) \;\le\; \mathrm{TUBE}_\psi(x).$
+        $\displaystyle \mathrm{ELBO}(x) \;\le\; \log p(x) \;\le\; \mathrm{TUBE}_\psi(x)$
       </div>
     </div>
   </div>

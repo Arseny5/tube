@@ -91,6 +91,39 @@
   </div>
 </section>
 
+<!-- ===================== UNIFIED VIEW / LATENT ORDERS ===================== -->
+<section class="section">
+  <div class="container" style="max-width:1120px;">
+    <h2 class="title is-3 has-text-centered">A Unified View via Latent Generation Orders</h2>
+    <div class="content is-size-5 has-text-justified" style="max-width:820px; margin:0 auto;">
+      <p>
+        Masked diffusion and any-order autoregressive models build a sequence by progressively
+        unmasking its positions. The order in which positions are filled is itself a
+        <strong>latent variable</strong>: the same sentence can be produced by many different
+        generation orders, and the model likelihood averages over all of them. This is precisely
+        why the likelihood is <strong>intractable</strong> &mdash; unlike a left-to-right
+        autoregressive model, there is no single order to read it off from.
+      </p>
+      <p>
+        This latent-order view unifies models that look different on the surface. An
+        <strong>any-order ARM</strong> commits one token per step, whereas a
+        <strong>multi-token (block) diffusion model</strong> can commit several tokens at once
+        &mdash; or none &mdash; per step. Both are simply different distributions over generation
+        orders under one framework, which is exactly the setting our bound is designed to evaluate.
+      </p>
+    </div>
+    <figure class="has-text-centered" style="margin-top:1.2rem;">
+      <img src="static/anyorder_anim.svg" alt="Latent generation orders: any-order ARM vs multi-token MDM unmasking tokens step by step" style="max-width:1050px; width:100%;">
+      <figcaption class="has-text-grey is-size-6" style="margin-top:0.6rem; max-width:900px; margin-left:auto; margin-right:auto;">
+        Two models under one lens. At each denoising step the newly generated token(s) light up: an
+        any-order ARM (left) reveals one token per step, a multi-token MDM (right) reveals a block of
+        tokens per step. Both realize the same sequence through a latent generation order.
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+
 <!-- ===================== METHOD ===================== -->
 <section class="section has-background-light">
   <div class="container" style="max-width:820px;">

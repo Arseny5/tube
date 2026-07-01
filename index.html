@@ -21,7 +21,7 @@
     .author-block { margin: 0 0.4rem; }
     .hero-body { padding: 2.5rem 1.5rem; }
     .publication-title { font-weight: 700; }
-    .teaser img { max-width: 1250px; width: 100%; }
+    .teaser img { max-width: 1050px; width: 100%; }
     .section { padding: 2rem 1.5rem; }
     pre { background: #f5f5f5; padding: 1rem; border-radius: 6px; overflow-x: auto; }
     .btn-pill { border-radius: 999px; }
@@ -73,11 +73,10 @@
 
 <!-- ===================== TEASER ===================== -->
 <section class="section" style="padding-top:0;">
-  <div class="container has-text-centered teaser is-fluid" style="max-width:1300px;">
+  <div class="container has-text-centered teaser is-fluid" style="max-width:1120px;">
     <img src="static/tube_method_anim2.svg" alt="TUBE method: latent orders, intractable likelihood, and the tangent upper bound">
-    <p class="has-text-grey is-size-6" style="margin-top:0.6rem;">
-      TUBE is a tractable <em>upper</em> bound on the (intractable) marginal log-likelihood:
-      together with the ELBO it localizes the true value, $\;\mathrm{ELBO}(x)\le \log p(x)\le \mathrm{TUBE}_\psi(x)$.
+    <p class="has-text-grey is-size-6" style="margin-top:0.6rem; max-width:1000px; margin-left:auto; margin-right:auto;">
+      <strong>Overview of TUBE.</strong> <em>Left:</em> the log-likelihood of masked / any-order diffusion models is intractable, because it marginalizes over all latent generation orders $\pi$. <em>Right:</em> the Tangent Upper Bound on Evidence (TUBE) is a tractable, unbiasedly-estimable <em>upper</em> bound that, together with the ELBO, two-sidedly localizes the true log-likelihood, $\;\mathrm{ELBO}(x)\le \log p(x)\le \mathrm{TUBE}_\psi(x)$.
     </p>
   </div>
 </section>
@@ -87,27 +86,7 @@
   <div class="container" style="max-width:820px;">
     <h2 class="title is-3 has-text-centered">Abstract</h2>
     <div class="content is-size-5 has-text-justified">
-      <p>
-        Log-likelihood is the standard metric for evaluating generative models, but it is
-        <strong>intractable for discrete (masked) diffusion language models</strong> (MDMs / any-order ARMs),
-        whose likelihood marginalizes over all latent generation orders. Existing evaluations rely on the
-        <strong>ELBO</strong>, a lower bound that leaves the gap to the true log-likelihood unknown and blocks
-        a rigorous comparison with autoregressive baselines.
-      </p>
-      <p>
-        We introduce the <strong>Tangent Upper Bound on Evidence (TUBE)</strong>: using the concavity of
-        $\log$ and a first-order (tangent) majorization around a tractable surrogate $\psi(x)$, we obtain a
-        valid <em>upper</em> bound
-        $\;\mathrm{TUBE}_\psi(x)=\log\psi(x)+\frac{p_{\mathrm{model}}(x)-\psi(x)}{\psi(x)}$,
-        with equality iff $\psi=p_{\mathrm{model}}$. Crucially, TUBE is <strong>linear</strong> in the model
-        likelihood, so it admits an <strong>unbiased, bound-preserving Monte-Carlo estimator</strong> &mdash;
-        unlike CUBO / TVO / IS-VG-B, whose finite-sample estimators break the bound.
-      </p>
-      <p>
-        Combined with the ELBO, TUBE two-sidedly localizes the true likelihood,
-        $\;\mathrm{ELBO}(x)\le\log p(x)\le\mathrm{TUBE}_\psi(x)$. Applied to block MDMs / AO-ARMs, it reveals
-        that these models remain <strong>strictly below the exact autoregressive baseline</strong> in likelihood.
-      </p>
+      <p>Log-likelihood is a standard metric for evaluating generative models. Unfortunately, in contrast to autoregressive models (ARMs), discrete diffusion models generally do not admit exact computation of this quantity. Existing evaluations, therefore, rely on the evidence lower bound (ELBO), leaving unclear how much higher the true value may be. We address this by introducing the Tangent Upper Bound on Evidence (TUBE), a variational upper bound on log-likelihood that admits an unbiased Monte Carlo estimator. Our TUBE extends across latent-variable models, including masked diffusion models (MDMs), any-order ARMs (AO-ARMs), and block variants of both. Applied to block MDMs and block AO-ARMs, TUBE reveals our key empirical finding that these models lie strictly below the exact ARM baseline, showing that ARMs still dominate in likelihood.</p>
     </div>
   </div>
 </section>

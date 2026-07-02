@@ -27,6 +27,11 @@
     .btn-pill { border-radius: 999px; }
     .mathbox { border:2px solid #cfd6e4; background:#f6f9fc; border-radius:12px; padding:1.05rem 1.2rem; margin:1.2rem auto; max-width:760px; }
     .mathbox.accent { border-color:#c98a3d; background:#fff7ec; }
+    .restable{border-collapse:collapse;margin:0 auto;font-size:0.92rem;}
+    .restable th,.restable td{border:1px solid #dfe3ea;padding:5px 10px;text-align:center;white-space:nowrap;}
+    .restable thead th{background:#eef2f7;}
+    .restable .ours{background:#eafaf1;font-weight:600;}
+    .restable .grp{background:#f7f9fc;font-weight:600;}
   </style>
 </head>
 
@@ -157,19 +162,59 @@
 
 <!-- ===================== RESULTS ===================== -->
 <section class="section">
-  <div class="container" style="max-width:900px;">
+  <div class="container" style="max-width:1000px;">
     <h2 class="title is-3 has-text-centered">Results</h2>
-    <div class="content is-size-5 has-text-justified">
+    <div class="content is-size-5 has-text-justified" style="max-width:900px;margin:0 auto;">
       <p>
-        On OpenWebText / LM1B with block diffusion (block sizes $L'\in\{4,8,16\}$), TUBE is the
-        <strong>only bound-preserving</strong> upper estimator in the comparison &mdash; CUBO, TVO and IS-VG-B
-        frequently violate $\mathrm{ELBO}_K$ at finite sample size. Across all block sizes and generation
-        regimes, AO-ARM / MDM perplexity stays above the exact AR baseline.
+        On both OWT and LM1B, in <strong>every configuration</strong> the AO-ARM / MDM perplexity lies
+        <strong>strictly above the exact ARM baseline</strong> &mdash; ARMs still dominate in likelihood
+        across all block sizes $L'\in\{4,8,16\}$ and generation regimes. The gap to ARM shrinks as the
+        number of function evaluations (NFE) grows. Among upper estimators, TUBE is the <strong>only
+        bound-preserving</strong> one: TVO and IS-VG-B sit above $\mathrm{ELBO}_K$ once NFE&nbsp;$\ge$&nbsp;2,
+        and CUBO's bias makes it unreliable as well.
       </p>
     </div>
-    <div class="has-text-centered">
-      <img src="static/results.png" alt="TUBE results table" style="max-width:880px; width:100%;">
+
+    <div style="overflow-x:auto;">
+      <table class="restable">
+        <caption style="caption-side:top;padding:0 0 0.6rem;" class="has-text-grey is-size-6">
+          <strong>Table 1. Test perplexity ($\downarrow$) on OWT.</strong>
+          $\mathrm{PPL}=\exp(-\log p_{\mathrm{model}}(x))$. Exact ARM baseline: <strong>17.54</strong> PPL.
+          Std over 10 ordering subsets omitted for clarity; Gap $=|\mathrm{TUBE}-\mathrm{ARM}|$.
+        </caption>
+        <thead>
+          <tr><th>$L'$</th><th>Regime</th><th>CUBO$_{\beta=2}$</th><th>TVO$_U$</th><th>IS-VG-B</th>
+              <th class="ours">TUBE (ours)</th><th>$\mathrm{ELBO}_K$</th><th>Gap</th></tr>
+        </thead>
+        <tbody>
+        <tr><td class="grp" rowspan="4">4</td><td>NFE=1</td><td>97.78</td><td>97.78</td><td>97.78</td><td class="ours">97.78</td><td>97.78</td><td>80.24</td></tr>
+        <tr><td>NFE=2</td><td>24.34</td><td>27.68</td><td>29.11</td><td class="ours">&ge;21.55</td><td>&le;27.40</td><td>4.01</td></tr>
+        <tr><td>NFE=4</td><td>19.78</td><td>21.89</td><td>22.52</td><td class="ours">&ge;19.16</td><td>&le;21.63</td><td>1.62</td></tr>
+        <tr><td>AO-ARM</td><td>17.50</td><td>18.55</td><td>18.76</td><td class="ours">&ge;17.74</td><td>18.46*</td><td>0.20</td></tr>
+        <tr><td class="grp" rowspan="5">8</td><td>NFE=1</td><td>221.54</td><td>221.54</td><td>221.54</td><td class="ours">221.54</td><td>221.54</td><td>204.00</td></tr>
+        <tr><td>NFE=2</td><td>29.04</td><td>33.41</td><td>34.95</td><td class="ours">&ge;24.32</td><td>&le;32.63</td><td>6.78</td></tr>
+        <tr><td>NFE=4</td><td>20.90</td><td>23.54</td><td>24.15</td><td class="ours">&ge;20.23</td><td>&le;23.25</td><td>2.69</td></tr>
+        <tr><td>NFE=8</td><td>18.85</td><td>20.83</td><td>21.17</td><td class="ours">&ge;19.15</td><td>&le;20.67</td><td>1.61</td></tr>
+        <tr><td>AO-ARM</td><td>17.95</td><td>19.31</td><td>19.46</td><td class="ours">&ge;18.67</td><td>&le;19.24</td><td>1.13</td></tr>
+        <tr><td class="grp" rowspan="5">16</td><td>NFE=1</td><td>398.63</td><td>398.63</td><td>398.63</td><td class="ours">398.63</td><td>398.63</td><td>381.09</td></tr>
+        <tr><td>NFE=2</td><td>35.80</td><td>39.80</td><td>41.93</td><td class="ours">&ge;22.50</td><td>&le;38.43</td><td>4.96</td></tr>
+        <tr><td>NFE=4</td><td>22.89</td><td>25.21</td><td>25.96</td><td class="ours">&ge;19.03</td><td>&le;24.75</td><td>1.49</td></tr>
+        <tr><td>NFE=8</td><td>19.59</td><td>21.38</td><td>21.77</td><td class="ours">&ge;18.44</td><td>&le;21.14</td><td>0.90</td></tr>
+        <tr><td>NFE=16</td><td>18.44</td><td>19.98</td><td>20.26</td><td class="ours">&ge;18.22</td><td>&le;19.83</td><td>0.68</td></tr>
+        <tr><td>AO-ARM</td><td>18.08</td><td>19.39</td><td>19.56</td><td class="ours">&ge;18.47</td><td>&le;19.30</td><td>0.93</td></tr>
+        </tbody>
+      </table>
     </div>
+
+    <figure class="has-text-centered" style="margin-top:1.6rem;">
+      <img src="static/fig_ppl_vs_g_owt.png" alt="Test perplexity with different psi choices on OWT" style="max-width:960px; width:100%;">
+      <figcaption class="has-text-grey is-size-6" style="margin-top:0.6rem; max-width:900px; margin-left:auto; margin-right:auto;">
+        <strong>Test perplexity ($\downarrow$) with different $\psi$ choices on OWT.</strong>
+        We report $\mathrm{PPL}=\exp(-\log p_{\mathrm{model}}(x))$. The bar plot reports standard deviations
+        over 10 repeated ordering samples with different random seeds. The dotted gold reference line shows
+        $\mathrm{ELBO}_K$.
+      </figcaption>
+    </figure>
   </div>
 </section>
 

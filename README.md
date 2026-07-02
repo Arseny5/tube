@@ -1,11 +1,36 @@
 # TUBE: Tangent Upper Bound on Evidence for Discrete Diffusion Language Models
 
-Code for the paper **TUBE** (arXiv:2605.24292).
+<p align="center">
+  <img src="assets/method.png" width="92%" alt="TUBE method figure">
+</p>
 
-Project page: https://Arseny5.github.io/tube/
+**Code for the paper _TUBE: Tangent Upper Bound on Evidence for Discrete Diffusion Language Models_.**
 
-> A. Ivanov, S. Kholkin, V. Gromadskii, G. Ksenofontov, I. Oseledets, A. Korotin. 2026.
+[📄 Paper (arXiv:2605.24292)](https://arxiv.org/abs/2605.24292) · [🌐 Project page](https://arseny5.github.io/tube/)
 
-## Structure
-- code goes here on the `main` branch
-- the project website lives on the `gh-pages` branch (served via GitHub Pages)
+TUBE is a variational **upper** bound on the log-likelihood of discrete diffusion and any-order
+models that admits an **unbiased Monte Carlo estimator**. Combined with the ELBO it two-sidedly
+localizes the true log-likelihood,
+
+$$\mathrm{ELBO}(x) \le \log p_{\mathrm{model}}(x) \le \mathrm{TUBE}_\psi(x).$$
+
+Applied to block masked-diffusion models and any-order ARMs, TUBE reveals that these models lie
+strictly below the exact autoregressive baseline in likelihood.
+
+## Code
+
+⏳ Code will be released soon.
+
+## Citing
+
+If you find this work useful, please cite:
+
+```bibtex
+@article{ivanov2026tube,
+  title   = {TUBE: Tangent Upper Bound on Evidence for Discrete Diffusion Language Models},
+  author  = {Ivanov, Arseny and Kholkin, Sergei and Gromadskii, Vladislav and
+             Ksenofontov, Grigoriy and Oseledets, Ivan and Korotin, Alexander},
+  journal = {arXiv preprint arXiv:2605.24292},
+  year    = {2026}
+}
+```

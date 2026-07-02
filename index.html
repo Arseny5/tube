@@ -174,9 +174,10 @@
     <h2 class="title is-3 has-text-centered">Results</h2>
     <div class="content is-size-5 has-text-justified" style="max-width:1050px;margin:0 auto;">
       <p>
+        We evaluate pretrained <strong>block-diffusion</strong> models (block AO-ARMs and block MDMs) at block sizes $L'\in\{4,8,16\}$.
         On both OWT and LM1B, in <strong>every configuration</strong> the AO-ARM / MDM perplexity lies
         <strong>strictly above the exact ARM baseline</strong> &mdash; ARMs still dominate in likelihood
-        across all block sizes $L'\in\{4,8,16\}$ and generation regimes. The gap to ARM shrinks as the
+        across all block sizes and generation regimes. The gap to ARM shrinks as the
         number of function evaluations (NFE) grows. Among upper estimators, TUBE is the <strong>only
         bound-preserving</strong> one: TVO and IS-VG-B sit above $\mathrm{ELBO}_K$ once NFE&nbsp;$\ge$&nbsp;2,
         and CUBO's bias makes it unreliable as well.

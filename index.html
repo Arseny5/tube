@@ -273,18 +273,25 @@
         hyperparameters: red-bordered cells mark configurations whose value exceeds $\mathrm{ELBO}_K$ and
         therefore break the bound. TUBE has no such region &mdash; it is bound-preserving by construction.</p>
     </div>
-    <figure class="has-text-centered" style="margin-top:1.4rem;">
-      <img src="static/app_cubo_heatmap.png" style="max-width:1100px; width:100%;">
-      <figcaption class="has-text-grey is-size-6" style="margin-top:0.5rem; max-width:960px; margin-left:auto; margin-right:auto;"><strong>CUBO$_\beta$ diagnostic</strong> on $L'\in\{4,8,16\}$ (OWT left, LM1B right). Red-bordered cells exceed $\mathrm{ELBO}_K$ and break the upper bound. Reducing the number of orderings breaks the bound upward; increasing the R&eacute;nyi exponent $\beta$ pushes it past the truth downward.</figcaption>
-    </figure>
-    <figure class="has-text-centered" style="margin-top:1.4rem;">
-      <img src="static/app_tvo_heatmap.png" style="max-width:1100px; width:100%;">
-      <figcaption class="has-text-grey is-size-6" style="margin-top:0.5rem; max-width:960px; margin-left:auto; margin-right:auto;"><strong>TVO diagnostic</strong> on $L'\in\{4,8,16\}$. The valid (non-violating) region is the upper-left (many orderings, few partitions); fewer orderings amplify the self-normalized importance-weight bias, and more partitions add discretization residual on top &mdash; both break the bound upward.</figcaption>
-    </figure>
-    <figure class="has-text-centered" style="margin-top:1.4rem;">
-      <img src="static/app_isvgb_heatmap.png" style="max-width:1100px; width:100%;">
-      <figcaption class="has-text-grey is-size-6" style="margin-top:0.5rem; max-width:960px; margin-left:auto; margin-right:auto;"><strong>IS-VG-B diagnostic</strong> on $L'\in\{4,8,16\}$. Red-bordered cells mark where the empirical estimate exceeds $\mathrm{ELBO}_K$ and violates the upper-bound guarantee.</figcaption>
-    </figure>
+    <div class="columns is-centered" style="margin-top:1.2rem;">
+    <div class="column has-text-centered" style="padding:0 0.6rem;">
+      <img src="static/app_cubo_owt.png" alt="CUBO$_\beta$ diagnostic on OWT" style="width:100%; max-width:400px; border:1px solid #eee;">
+      <p class="is-size-6 has-text-grey" style="margin-top:0.4rem;"><strong>CUBO$_\beta$</strong><br>orderings $\times$ R&eacute;nyi $\beta$</p>
+    </div>
+    <div class="column has-text-centered" style="padding:0 0.6rem;">
+      <img src="static/app_tvo_owt.png" alt="TVO diagnostic on OWT" style="width:100%; max-width:400px; border:1px solid #eee;">
+      <p class="is-size-6 has-text-grey" style="margin-top:0.4rem;"><strong>TVO</strong><br>orderings $\times$ partitions</p>
+    </div>
+    <div class="column has-text-centered" style="padding:0 0.6rem;">
+      <img src="static/app_isvgb_owt.png" alt="IS-VG-B diagnostic on OWT" style="width:100%; max-width:400px; border:1px solid #eee;">
+      <p class="is-size-6 has-text-grey" style="margin-top:0.4rem;"><strong>IS-VG-B</strong><br>orderings $\times$ pairs</p>
+    </div>
+    </div>
+    <p class="has-text-grey is-size-6 has-text-centered" style="max-width:960px;margin:0.4rem auto 0;">
+      Baseline diagnostics on OWT ($L'\in\{4,8,16\}$, top to bottom). Red-bordered cells exceed
+      $\mathrm{ELBO}_K$ and break the upper bound; the valid region shrinks as orderings decrease or the
+      estimator&rsquo;s hyperparameter grows. TUBE has no violating region.
+    </p>
 
   </div>
 </section>

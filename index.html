@@ -32,6 +32,7 @@
     .restable thead th{background:#eef2f7;}
     .restable .ours{background:#eafaf1;font-weight:600;}
     .restable .biased{background:#fadbd8;color:#c0392b;}
+    .restable .biasedn{background:#fadbd8;}
     .restable thead .biasedhdr{background:#f5b7b1;color:#922b21;}
     .restable thead .ourshdr{background:#cdeede;color:#1f7a4d;}
     .restable td.est{text-align:left;padding-left:16px;padding-right:16px;}
@@ -204,21 +205,21 @@
           </tr>
         </thead>
         <tbody>
-        <tr><td class="grp" rowspan="4">4</td><td>NFE=1</td><td class="biased">97.78</td><td class="biased">97.78</td><td class="biased">97.78</td><td class="ours">97.78</td><td>97.78</td><td>80.24</td></tr>
-        <tr><td>NFE=2</td><td class="biased">24.34</td><td class="biased">27.68</td><td class="biased">29.11</td><td class="ours">&ge;21.55</td><td>&le;27.40</td><td>4.01</td></tr>
-        <tr><td>NFE=4</td><td class="biased">19.78</td><td class="biased">21.89</td><td class="biased">22.52</td><td class="ours">&ge;19.16</td><td>&le;21.63</td><td>1.62</td></tr>
-        <tr><td>AO-ARM</td><td class="biased">17.50</td><td class="biased">18.55</td><td class="biased">18.76</td><td class="ours">&ge;17.74</td><td>18.46*</td><td>0.20</td></tr>
-        <tr><td class="grp" rowspan="5">8</td><td>NFE=1</td><td class="biased">221.54</td><td class="biased">221.54</td><td class="biased">221.54</td><td class="ours">221.54</td><td>221.54</td><td>204.00</td></tr>
-        <tr><td>NFE=2</td><td class="biased">29.04</td><td class="biased">33.41</td><td class="biased">34.95</td><td class="ours">&ge;24.32</td><td>&le;32.63</td><td>6.78</td></tr>
-        <tr><td>NFE=4</td><td class="biased">20.90</td><td class="biased">23.54</td><td class="biased">24.15</td><td class="ours">&ge;20.23</td><td>&le;23.25</td><td>2.69</td></tr>
-        <tr><td>NFE=8</td><td class="biased">18.85</td><td class="biased">20.83</td><td class="biased">21.17</td><td class="ours">&ge;19.15</td><td>&le;20.67</td><td>1.61</td></tr>
-        <tr><td>AO-ARM</td><td class="biased">17.95</td><td class="biased">19.31</td><td class="biased">19.46</td><td class="ours">&ge;18.67</td><td>&le;19.24</td><td>1.13</td></tr>
-        <tr><td class="grp" rowspan="6">16</td><td>NFE=1</td><td class="biased">398.63</td><td class="biased">398.63</td><td class="biased">398.63</td><td class="ours">398.63</td><td>398.63</td><td>381.09</td></tr>
-        <tr><td>NFE=2</td><td class="biased">35.80</td><td class="biased">39.80</td><td class="biased">41.93</td><td class="ours">&ge;22.50</td><td>&le;38.43</td><td>4.96</td></tr>
-        <tr><td>NFE=4</td><td class="biased">22.89</td><td class="biased">25.21</td><td class="biased">25.96</td><td class="ours">&ge;19.03</td><td>&le;24.75</td><td>1.49</td></tr>
-        <tr><td>NFE=8</td><td class="biased">19.59</td><td class="biased">21.38</td><td class="biased">21.77</td><td class="ours">&ge;18.44</td><td>&le;21.14</td><td>0.90</td></tr>
-        <tr><td>NFE=16</td><td class="biased">18.44</td><td class="biased">19.98</td><td class="biased">20.26</td><td class="ours">&ge;18.22</td><td>&le;19.83</td><td>0.68</td></tr>
-        <tr><td>AO-ARM</td><td class="biased">18.08</td><td class="biased">19.39</td><td class="biased">19.56</td><td class="ours">&ge;18.47</td><td>&le;19.30</td><td>0.93</td></tr>
+        <tr><td class="grp" rowspan="4">4</td><td>NFE=1</td><td class="biasedn">97.78</td><td class="biased">97.78</td><td class="biased">97.78</td><td class="ours">97.78</td><td>97.78</td><td>80.24</td></tr>
+        <tr><td>NFE=2</td><td class="biasedn">24.34</td><td class="biased">27.68</td><td class="biased">29.11</td><td class="ours">&ge;21.55</td><td>&le;27.40</td><td>4.01</td></tr>
+        <tr><td>NFE=4</td><td class="biasedn">19.78</td><td class="biased">21.89</td><td class="biased">22.52</td><td class="ours">&ge;19.16</td><td>&le;21.63</td><td>1.62</td></tr>
+        <tr><td>AO-ARM</td><td class="biasedn">17.50</td><td class="biased">18.55</td><td class="biased">18.76</td><td class="ours">&ge;17.74</td><td>18.46*</td><td>0.20</td></tr>
+        <tr><td class="grp" rowspan="5">8</td><td>NFE=1</td><td class="biasedn">221.54</td><td class="biased">221.54</td><td class="biased">221.54</td><td class="ours">221.54</td><td>221.54</td><td>204.00</td></tr>
+        <tr><td>NFE=2</td><td class="biasedn">29.04</td><td class="biased">33.41</td><td class="biased">34.95</td><td class="ours">&ge;24.32</td><td>&le;32.63</td><td>6.78</td></tr>
+        <tr><td>NFE=4</td><td class="biasedn">20.90</td><td class="biased">23.54</td><td class="biased">24.15</td><td class="ours">&ge;20.23</td><td>&le;23.25</td><td>2.69</td></tr>
+        <tr><td>NFE=8</td><td class="biasedn">18.85</td><td class="biased">20.83</td><td class="biased">21.17</td><td class="ours">&ge;19.15</td><td>&le;20.67</td><td>1.61</td></tr>
+        <tr><td>AO-ARM</td><td class="biasedn">17.95</td><td class="biased">19.31</td><td class="biased">19.46</td><td class="ours">&ge;18.67</td><td>&le;19.24</td><td>1.13</td></tr>
+        <tr><td class="grp" rowspan="6">16</td><td>NFE=1</td><td class="biasedn">398.63</td><td class="biased">398.63</td><td class="biased">398.63</td><td class="ours">398.63</td><td>398.63</td><td>381.09</td></tr>
+        <tr><td>NFE=2</td><td class="biasedn">35.80</td><td class="biased">39.80</td><td class="biased">41.93</td><td class="ours">&ge;22.50</td><td>&le;38.43</td><td>4.96</td></tr>
+        <tr><td>NFE=4</td><td class="biasedn">22.89</td><td class="biased">25.21</td><td class="biased">25.96</td><td class="ours">&ge;19.03</td><td>&le;24.75</td><td>1.49</td></tr>
+        <tr><td>NFE=8</td><td class="biasedn">19.59</td><td class="biased">21.38</td><td class="biased">21.77</td><td class="ours">&ge;18.44</td><td>&le;21.14</td><td>0.90</td></tr>
+        <tr><td>NFE=16</td><td class="biasedn">18.44</td><td class="biased">19.98</td><td class="biased">20.26</td><td class="ours">&ge;18.22</td><td>&le;19.83</td><td>0.68</td></tr>
+        <tr><td>AO-ARM</td><td class="biasedn">18.08</td><td class="biased">19.39</td><td class="biased">19.56</td><td class="ours">&ge;18.47</td><td>&le;19.30</td><td>0.93</td></tr>
         </tbody>
       </table>
     </div>

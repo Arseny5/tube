@@ -258,12 +258,12 @@
           <tr><th>Bound</th><th>Type</th><th>Empirical estimator</th><th>Bound-preserving?</th></tr>
         </thead>
         <tbody>
-        <tr class="lb"><td>ELBO</td><td>Lower</td><td class="est">$\log p_{\mathrm{model}}(x\mid\pi^{(1)})$</td><td><span style="color:#1f9d55;font-size:1.25rem;">&#10003;</span></td></tr>
-        <tr class="lb"><td>$\mathrm{ELBO}_K$</td><td>Lower</td><td class="est">$\log\!\left(\tfrac1K\sum_{k=1}^K p_{\mathrm{model}}(x\mid\pi^{(k)})\right)$</td><td><span style="color:#1f9d55;font-size:1.25rem;">&#10003;</span></td></tr>
-        <tr class="ub"><td>$\mathrm{CUBO}_{\beta\ge1}$</td><td>Upper</td><td class="est">$\tfrac1\beta\,{\color{red}{\log}}\!\left(\tfrac1K\sum_{k=1}^K p_{\mathrm{model}}(x\mid\pi^{(k)})^{\beta}\right)$</td><td><span style="color:#c0392b;font-size:1.25rem;">&#10007;</span></td></tr>
-        <tr class="ub"><td>$\mathrm{TVO}_\Lambda^{U}$</td><td>Upper</td><td class="est">$\tfrac1\Lambda\sum_{\lambda=1}^\Lambda\sum_{k=1}^K {\color{red}{\bar w_k^{(\beta_\lambda)}}}\,\log p_{\mathrm{model}}(x\mid\pi^{(k)})$</td><td><span style="color:#c0392b;font-size:1.25rem;">&#10007;</span></td></tr>
-        <tr class="ub"><td>IS-VG-B</td><td>Upper</td><td class="est">$\tfrac1{n_p}\sum_{j=1}^{n_p}{\color{red}{\log}}\!\left(\tfrac1s\sum_{i=1}^s p_{\mathrm{model}}(x\mid\pi^{(j,i)})\right)+{\color{red}{\log}}\!\left(\tfrac1{n_p}\sum_j \frac{\sum_i p_{\mathrm{model}}(x\mid\tilde\pi^{(j,i)})}{\sum_i p_{\mathrm{model}}(x\mid\pi^{(j,i)})}\right)$</td><td><span style="color:#c0392b;font-size:1.25rem;">&#10007;</span></td></tr>
-        <tr class="lb"><td><strong>TUBE (Ours)</strong></td><td>Upper</td><td class="est">$\log\psi(x)+\dfrac{\tfrac1K\sum_{k=1}^K p_{\mathrm{model}}(x\mid\pi^{(k)})-\psi(x)}{\psi(x)}$</td><td><span style="color:#1f9d55;font-size:1.25rem;">&#10003;</span></td></tr>
+        <tr class="lb"><td>ELBO</td><td>Lower</td><td class="est">$\log p_{\mathrm{model}}(x\mid\pi^{(1)})$</td><td style="text-align:center"><span style="color:#1f9d55;font-size:1.25rem;">&#10003;</span></td></tr>
+        <tr class="lb"><td>$\mathrm{ELBO}_K$</td><td>Lower</td><td class="est">$\log\!\left(\tfrac1K\sum_{k=1}^K p_{\mathrm{model}}(x\mid\pi^{(k)})\right)$</td><td style="text-align:center"><span style="color:#1f9d55;font-size:1.25rem;">&#10003;</span></td></tr>
+        <tr class="ub"><td>$\mathrm{CUBO}_{\beta\ge1}$</td><td>Upper</td><td class="est">$\tfrac1\beta\,{\color{red}{\log}}\!\left(\tfrac1K\sum_{k=1}^K p_{\mathrm{model}}(x\mid\pi^{(k)})^{\beta}\right)$</td><td style="text-align:center"><span style="color:#c0392b;font-size:1.25rem;">&#10007;</span></td></tr>
+        <tr class="ub"><td>$\mathrm{TVO}_\Lambda^{U}$</td><td>Upper</td><td class="est">$\tfrac1\Lambda\sum_{\lambda=1}^\Lambda\sum_{k=1}^K {\color{red}{\bar w_k^{(\beta_\lambda)}}}\,\log p_{\mathrm{model}}(x\mid\pi^{(k)})$</td><td style="text-align:center"><span style="color:#c0392b;font-size:1.25rem;">&#10007;</span></td></tr>
+        <tr class="ub"><td>IS-VG-B</td><td>Upper</td><td class="est">$\tfrac1{n_p}\sum_{j=1}^{n_p}{\color{red}{\log}}\!\left(\tfrac1s\sum_{i=1}^s p_{\mathrm{model}}(x\mid\pi^{(j,i)})\right)+{\color{red}{\log}}\!\left(\tfrac1{n_p}\sum_j \frac{\sum_i p_{\mathrm{model}}(x\mid\tilde\pi^{(j,i)})}{\sum_i p_{\mathrm{model}}(x\mid\pi^{(j,i)})}\right)$</td><td style="text-align:center"><span style="color:#c0392b;font-size:1.25rem;">&#10007;</span></td></tr>
+        <tr class="lb"><td><strong>TUBE (Ours)</strong></td><td>Upper</td><td class="est">$\log\psi(x)+\dfrac{\tfrac1K\sum_{k=1}^K p_{\mathrm{model}}(x\mid\pi^{(k)})-\psi(x)}{\psi(x)}$</td><td style="text-align:center"><span style="color:#1f9d55;font-size:1.25rem;">&#10003;</span></td></tr>
         </tbody>
       </table>
     </div>

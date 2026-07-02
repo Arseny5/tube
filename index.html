@@ -233,6 +233,15 @@
         $\mathrm{ELBO}_K$.
       </figcaption>
     </figure>
+    <figure class="has-text-centered" style="margin-top:1.8rem;">
+      <img src="static/app_per_block.png" alt="Per-block per-token NLL on LM1B" style="max-width:1000px; width:100%;">
+      <figcaption class="has-text-grey is-size-6" style="margin-top:0.6rem; max-width:940px; margin-left:auto; margin-right:auto;">
+        <strong>Per-block per-token NLL on LM1B.</strong> ARM (dark gray), per-block ELBO (light gray), and
+        TUBE (blue dashed) versus block index $b$, for $L'\in\{4,8,16\}$. Insets zoom on the first four
+        blocks. The ordering $\mathrm{ARM}\le\mathrm{TUBE}_{\psi_{B,K}}\le\mathrm{ELBO}$ holds at every block.
+      </figcaption>
+    </figure>
+
   </div>
 </section>
 <!-- ===================== ESTIMATOR COMPARISON ===================== -->

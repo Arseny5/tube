@@ -28,7 +28,7 @@
     .mathbox { border:2px solid #cfd6e4; background:#f6f9fc; border-radius:12px; padding:1.05rem 1.2rem; margin:1.2rem auto; max-width:760px; }
     .mathbox.accent { border-color:#c98a3d; background:#fff7ec; }
     .restable{border-collapse:collapse;margin:1rem auto;font-size:1.0rem;}
-    .restable th,.restable td{border:1px solid #dfe3ea;padding:9px 20px;text-align:center;white-space:nowrap;}
+    .restable th,.restable td{border:1px solid #dfe3ea;padding:9px 20px;text-align:center;white-space:nowrap;vertical-align:middle;}
     .restable thead th{background:#eef2f7;}
     .restable .ours{background:#eafaf1;font-weight:600;}
     .restable .biased{background:#fdeae4;color:#b0392b;}
@@ -166,41 +166,6 @@
     </div>
   </div>
 </section>
-<!-- ===================== ESTIMATOR COMPARISON ===================== -->
-<section class="section has-background-light">
-  <div class="container" style="max-width:1180px;">
-    <h2 class="title is-3 has-text-centered">Comparison of Likelihood Estimators</h2>
-    <div class="content is-size-5 has-text-justified" style="max-width:1000px;margin:0 auto;">
-      <p>
-        We call an empirical estimator <strong>bound-preserving</strong> if its expectation provably
-        preserves the bound direction. Prior upper-bound estimators (CUBO, TVO, IS-VG-B) apply a
-        nonlinear $\log$ or self-normalized weights to a Monte-Carlo mean, so by Jensen&rsquo;s inequality
-        their finite-sample expectation can break the bound (terms in
-        <span style="color:#c0392b">red</span>). TUBE is <strong>linear</strong> in the model likelihood,
-        so its Monte-Carlo estimator stays bound-preserving.
-      </p>
-    </div>
-    <div style="overflow-x:auto;">
-      <table class="restable">
-        <caption style="caption-side:top;padding:0 0 0.6rem;" class="has-text-grey is-size-6">
-          <strong>Table 2. Estimators for various bounds on log-likelihood for latent-variable models.</strong>
-          Bound-breaking terms are highlighted in red; TUBE&rsquo;s estimator is bound-preserving.
-        </caption>
-        <thead>
-          <tr><th>Bound</th><th>Type</th><th>Empirical estimator</th><th>Bound-preserving?</th></tr>
-        </thead>
-        <tbody>
-        <tr class="lb"><td><strong>ELBO</strong></td><td>Lower</td><td class="est">$\log p_{\mathrm{model}}(x\mid\pi^{(1)})$</td><td><span style="color:#1f9d55;font-size:1.25rem;">&#10003;</span></td></tr>
-        <tr class="lb"><td><strong>$\mathrm{ELBO}_K$</strong></td><td>Lower</td><td class="est">$\log\!\left(\tfrac1K\sum_{k=1}^K p_{\mathrm{model}}(x\mid\pi^{(k)})\right)$</td><td><span style="color:#1f9d55;font-size:1.25rem;">&#10003;</span></td></tr>
-        <tr class="ub"><td><strong>$\mathrm{CUBO}_{\beta\ge1}$</strong></td><td>Upper</td><td class="est">$\tfrac1\beta\,{\color{red}{\log}}\!\left(\tfrac1K\sum_{k=1}^K p_{\mathrm{model}}(x\mid\pi^{(k)})^{\beta}\right)$</td><td><span style="color:#c0392b;font-size:1.25rem;">&#10007;</span></td></tr>
-        <tr class="ub"><td><strong>$\mathrm{TVO}_\Lambda^{U}$</strong></td><td>Upper</td><td class="est">$\tfrac1\Lambda\sum_{\lambda=1}^\Lambda\sum_{k=1}^K {\color{red}{\bar w_k^{(\beta_\lambda)}}}\,\log p_{\mathrm{model}}(x\mid\pi^{(k)})$</td><td><span style="color:#c0392b;font-size:1.25rem;">&#10007;</span></td></tr>
-        <tr class="ub"><td><strong>IS-VG-B</strong></td><td>Upper</td><td class="est">$\tfrac1{n_p}\sum_{j=1}^{n_p}{\color{red}{\log}}\!\left(\tfrac1s\sum_{i=1}^s p_{\mathrm{model}}(x\mid\pi^{(j,i)})\right)+{\color{red}{\log}}\!\left(\tfrac1{n_p}\sum_j \frac{\sum_i p_{\mathrm{model}}(x\mid\tilde\pi^{(j,i)})}{\sum_i p_{\mathrm{model}}(x\mid\pi^{(j,i)})}\right)$</td><td><span style="color:#c0392b;font-size:1.25rem;">&#10007;</span></td></tr>
-        <tr class="lb"><td><strong>TUBE (Ours)</strong></td><td>Upper</td><td class="est">$\log\psi(x)+\dfrac{\tfrac1K\sum_{k=1}^K p_{\mathrm{model}}(x\mid\pi^{(k)})-\psi(x)}{\psi(x)}$</td><td><span style="color:#1f9d55;font-size:1.25rem;">&#10003;</span></td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
 
 <!-- ===================== RESULTS ===================== -->
 <section class="section">
@@ -267,6 +232,41 @@
         $\mathrm{ELBO}_K$.
       </figcaption>
     </figure>
+  </div>
+</section>
+<!-- ===================== ESTIMATOR COMPARISON ===================== -->
+<section class="section has-background-light">
+  <div class="container" style="max-width:1180px;">
+    <h2 class="title is-3 has-text-centered">Comparison of Likelihood Estimators</h2>
+    <div class="content is-size-5 has-text-justified" style="max-width:1000px;margin:0 auto;">
+      <p>
+        We call an empirical estimator <strong>bound-preserving</strong> if its expectation provably
+        preserves the bound direction. Prior upper-bound estimators (CUBO, TVO, IS-VG-B) apply a
+        nonlinear $\log$ or self-normalized weights to a Monte-Carlo mean, so by Jensen&rsquo;s inequality
+        their finite-sample expectation can break the bound (terms in
+        <span style="color:#c0392b">red</span>). TUBE is <strong>linear</strong> in the model likelihood,
+        so its Monte-Carlo estimator stays bound-preserving.
+      </p>
+    </div>
+    <div style="overflow-x:auto;">
+      <table class="restable">
+        <caption style="caption-side:top;padding:0 0 0.6rem;" class="has-text-grey is-size-6">
+          <strong>Table 2. Estimators for various bounds on log-likelihood for latent-variable models.</strong>
+          Bound-breaking terms are highlighted in red; TUBE&rsquo;s estimator is bound-preserving.
+        </caption>
+        <thead>
+          <tr><th>Bound</th><th>Type</th><th>Empirical estimator</th><th>Bound-preserving?</th></tr>
+        </thead>
+        <tbody>
+        <tr class="lb"><td>ELBO</td><td>Lower</td><td class="est">$\log p_{\mathrm{model}}(x\mid\pi^{(1)})$</td><td><span style="color:#1f9d55;font-size:1.25rem;">&#10003;</span></td></tr>
+        <tr class="lb"><td>$\mathrm{ELBO}_K$</td><td>Lower</td><td class="est">$\log\!\left(\tfrac1K\sum_{k=1}^K p_{\mathrm{model}}(x\mid\pi^{(k)})\right)$</td><td><span style="color:#1f9d55;font-size:1.25rem;">&#10003;</span></td></tr>
+        <tr class="ub"><td>$\mathrm{CUBO}_{\beta\ge1}$</td><td>Upper</td><td class="est">$\tfrac1\beta\,{\color{red}{\log}}\!\left(\tfrac1K\sum_{k=1}^K p_{\mathrm{model}}(x\mid\pi^{(k)})^{\beta}\right)$</td><td><span style="color:#c0392b;font-size:1.25rem;">&#10007;</span></td></tr>
+        <tr class="ub"><td>$\mathrm{TVO}_\Lambda^{U}$</td><td>Upper</td><td class="est">$\tfrac1\Lambda\sum_{\lambda=1}^\Lambda\sum_{k=1}^K {\color{red}{\bar w_k^{(\beta_\lambda)}}}\,\log p_{\mathrm{model}}(x\mid\pi^{(k)})$</td><td><span style="color:#c0392b;font-size:1.25rem;">&#10007;</span></td></tr>
+        <tr class="ub"><td>IS-VG-B</td><td>Upper</td><td class="est">$\tfrac1{n_p}\sum_{j=1}^{n_p}{\color{red}{\log}}\!\left(\tfrac1s\sum_{i=1}^s p_{\mathrm{model}}(x\mid\pi^{(j,i)})\right)+{\color{red}{\log}}\!\left(\tfrac1{n_p}\sum_j \frac{\sum_i p_{\mathrm{model}}(x\mid\tilde\pi^{(j,i)})}{\sum_i p_{\mathrm{model}}(x\mid\pi^{(j,i)})}\right)$</td><td><span style="color:#c0392b;font-size:1.25rem;">&#10007;</span></td></tr>
+        <tr class="lb"><td><strong>TUBE (Ours)</strong></td><td>Upper</td><td class="est">$\log\psi(x)+\dfrac{\tfrac1K\sum_{k=1}^K p_{\mathrm{model}}(x\mid\pi^{(k)})-\psi(x)}{\psi(x)}$</td><td><span style="color:#1f9d55;font-size:1.25rem;">&#10003;</span></td></tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </section>
 

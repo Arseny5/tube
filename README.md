@@ -16,6 +16,9 @@
 
 </div>
 
+## News
+- **[2026-09]** Our paper is accepted in [NeurIPS](https://neurips.cc/) 2026 Main Track Conference
+
 ## Official Code Repository
 
 <p align="center">

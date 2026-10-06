@@ -4,7 +4,7 @@
 
 **[Arseny Ivanov](https://scholar.google.com/citations?user=lvr79TEAAAAJ&hl=ru)**<sup>1,2,3</sup>,
 **[Sergei Kholkin](https://scholar.google.com/citations?user=KwhztSMAAAAJ&hl=en)**<sup>2</sup>,
-**[Vladislav Gromadskii](https://www.researchgate.net/profile/Vladislav-Gromadskii)**<sup>2</sup>,
+**[Vladislav Gromadskii](https://www.researchgate.net/profile/Vladislav-Gromadskii)**<sup>2</sup>, <br>
 **[Grigoriy Ksenofontov](https://scholar.google.com/citations?user=e0mirzYAAAAJ&hl=ru)**<sup>2,4</sup>,
 **[Ivan Oseledets](https://scholar.google.com/citations?user=5kMqBQEAAAAJ&hl=en)**<sup>1,2</sup>,
 **[Alexander Korotin](https://scholar.google.com/citations?user=1rIIvjAAAAAJ&hl=ru)**<sup>2,1</sup>
